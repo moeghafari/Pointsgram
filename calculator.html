@@ -1,0 +1,69 @@
+<html>
+<head>
+	<style>
+	.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+
+.grid-item {
+    align-self: center;
+}
+
+.label {
+    text-align: right;
+}
+
+.input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+	</style>
+    <script>
+        function calculate() {
+            // Retrieve input values
+            var customerBase = 1063;
+            var anualSales = document.getElementById("input1").value;
+            var anualCustomers = document.getElementById("input2").value;
+            var avgTicketSize = document.getElementById("input3").value;
+            var avgCustSpend = anualSales / anualCustomers;
+            var baseConverts = 0.2/100;
+            var spendingIncrease = 27/100;
+            var loyalCustConversion = 20/100;
+            var loyaltyCost = 1/100;
+            var membership = 50;
+            var viewValue = 1.5;
+            document.getElementById("input4").value = anualCustomers*baseConverts*12;
+            document.getElementById("input5").value = anualCustomers*avgCustSpend*spendingIncrease*loyalCustConversion;
+            document.getElementById("input6").value = avgTicketSize*document.getElementById("input4").value;
+            document.getElementById("input7").value = parseInt(document.getElementById("input5").value) + parseInt(document.getElementById("input6").value);
+            document.getElementById("input8").value = viewValue * customerBase;
+            document.getElementById("input9").value = parseInt(document.getElementById("input7").value) + parseInt(document.getElementById("input8").value);
+            document.getElementById("input10").value = loyaltyCost * loyalCustConversion * anualCustomers * avgCustSpend * (1+spendingIncrease);
+            document.getElementById("input12").value = parseInt(document.getElementById("input10").value) + parseInt(document.getElementById("input11").value);
+            document.getElementById("input13").value = Math.trunc(((parseInt(document.getElementById("input9").value) - parseInt(document.getElementById("input12").value))/parseInt(document.getElementById("input12").value)) *100);
+        }
+    </script>
+</head>
+<body>
+<div class="grid-container">
+    <label class="grid-item label">Annual Sales: <input class="grid-item input" type="text" id="input1" value="100000"></label><br>
+    <label class="grid-item label">Annual Customers (Count)<input class="grid-item input" type="text" id="input2" value="1000"></label><br>
+    <label class="grid-item label">Average Ticket Size<input class="grid-item input" type="text" id="input3" value="80"></label><br>
+    <label class="grid-item label">Projected new shoppers aqcuired through Pointsgram (Yearly $)<input disabled class="grid-item input" type="text" id="input4" value="24"></label><br>
+    <label class="grid-item label">Projected increase in sales due to loyalty (Yearly $)<input disabled class="grid-item input" type="text" id="input5" value="5400"></label><br>
+    <label class="grid-item label">Projected increase sales due to Pointsgram (Yearly $)<input disabled class="grid-item input" type="text" id="input6" value="1920"></label><br>
+    <label class="grid-item label">Total Sales Increase (Yearly $)<input disabled class="grid-item input" type="text" id="input7" value="7320"></label><br>
+    <label class="grid-item label">Brand Recognition (Upfront $)<input disabled class="grid-item input" type="text" id="input8" value="1500"></label><br>
+    <label class="grid-item label">Total Value (Yearly $)<input disabled class="grid-item input" type="text" id="input9" value="8820"></label><br>
+    <label class="grid-item label">Cost of Loyalty (Yearly $)<input disabled class="grid-item input" type="text" id="input10" value="254"></label><br>
+    <label class="grid-item label">Cost of Membership (Yearly $)<input disabled class="grid-item input" type="text" id="input11" value="600"></label><br>
+    <label class="grid-item label">Total Cost of Pointsgram (Yearly $)<input disabled class="grid-item input" type="text" id="input12" value="854"></label><br>
+    <label class="grid-item label">ROI (Yearly %)<input disabled class="grid-item input" type="text" id="input13" value="933"></label><br>
+	</div>
+    <button onclick="calculate()">Calculate</button>
+</body>
+</html>
+
