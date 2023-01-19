@@ -2,9 +2,6 @@ const headerPage0= "Sales Toolbox";
 const headerPage1= "Annual Projection";
 const headerPage2= "Summary";
 
-
-
-
 calculate();
 
 // Add event listeners for all input fields
