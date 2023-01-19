@@ -1,69 +1,126 @@
 <html>
+
 <head>
-	<style>
-	.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10px;
-}
-
-.grid-item {
-    align-self: center;
-}
-
-.label {
-    text-align: right;
-}
-
-.input {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-	</style>
-    <script>
-        function calculate() {
-            // Retrieve input values
-            var customerBase = 1063;
-            var anualSales = document.getElementById("input1").value;
-            var anualCustomers = document.getElementById("input2").value;
-            var avgTicketSize = document.getElementById("input3").value;
-            var avgCustSpend = anualSales / anualCustomers;
-            var baseConverts = 0.2/100;
-            var spendingIncrease = 27/100;
-            var loyalCustConversion = 20/100;
-            var loyaltyCost = 1/100;
-            var membership = 50;
-            var viewValue = 1.5;
-            document.getElementById("input4").value = anualCustomers*baseConverts*12;
-            document.getElementById("input5").value = anualCustomers*avgCustSpend*spendingIncrease*loyalCustConversion;
-            document.getElementById("input6").value = avgTicketSize*document.getElementById("input4").value;
-            document.getElementById("input7").value = parseInt(document.getElementById("input5").value) + parseInt(document.getElementById("input6").value);
-            document.getElementById("input8").value = viewValue * customerBase;
-            document.getElementById("input9").value = parseInt(document.getElementById("input7").value) + parseInt(document.getElementById("input8").value);
-            document.getElementById("input10").value = loyaltyCost * loyalCustConversion * anualCustomers * avgCustSpend * (1+spendingIncrease);
-            document.getElementById("input12").value = parseInt(document.getElementById("input10").value) + parseInt(document.getElementById("input11").value);
-            document.getElementById("input13").value = Math.trunc(((parseInt(document.getElementById("input9").value) - parseInt(document.getElementById("input12").value))/parseInt(document.getElementById("input12").value)) *100);
-        }
-    </script>
+    <title>Pointsgram Sales ToolBox</title>
+    <link rel="icon" href="/img/icon_0.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/scss/style.scss">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
-<body>
-<div class="grid-container">
-    <label class="grid-item label">Annual Sales: <input class="grid-item input" type="text" id="input1" value="100000"></label><br>
-    <label class="grid-item label">Annual Customers (Count)<input class="grid-item input" type="text" id="input2" value="1000"></label><br>
-    <label class="grid-item label">Average Ticket Size<input class="grid-item input" type="text" id="input3" value="80"></label><br>
-    <label class="grid-item label">Projected new shoppers aqcuired through Pointsgram (Yearly $)<input disabled class="grid-item input" type="text" id="input4" value="24"></label><br>
-    <label class="grid-item label">Projected increase in sales due to loyalty (Yearly $)<input disabled class="grid-item input" type="text" id="input5" value="5400"></label><br>
-    <label class="grid-item label">Projected increase sales due to Pointsgram (Yearly $)<input disabled class="grid-item input" type="text" id="input6" value="1920"></label><br>
-    <label class="grid-item label">Total Sales Increase (Yearly $)<input disabled class="grid-item input" type="text" id="input7" value="7320"></label><br>
-    <label class="grid-item label">Brand Recognition (Upfront $)<input disabled class="grid-item input" type="text" id="input8" value="1500"></label><br>
-    <label class="grid-item label">Total Value (Yearly $)<input disabled class="grid-item input" type="text" id="input9" value="8820"></label><br>
-    <label class="grid-item label">Cost of Loyalty (Yearly $)<input disabled class="grid-item input" type="text" id="input10" value="254"></label><br>
-    <label class="grid-item label">Cost of Membership (Yearly $)<input disabled class="grid-item input" type="text" id="input11" value="600"></label><br>
-    <label class="grid-item label">Total Cost of Pointsgram (Yearly $)<input disabled class="grid-item input" type="text" id="input12" value="854"></label><br>
-    <label class="grid-item label">ROI (Yearly %)<input disabled class="grid-item input" type="text" id="input13" value="933"></label><br>
-	</div>
-    <button onclick="calculate()">Calculate</button>
-</body>
-</html>
 
+<body>
+
+    <div class="container">
+        
+        <div class="b2b-page-section3-content">
+            <div class="row justify-content-between">
+                <div id="leftArrow" class="col-4" onclick="left()"></div>
+                <div class="col-4" >
+                  <h2 id="toolboxHeader" class="text-white">Sales Toolbox</h2>
+                </div>
+                
+                <div id="rightArrow" class="col-4 arrowRight" onclick="right()"></div> 
+            </div>
+<div  class="b2b-page-section3-text  animate__animated animate__bounceInLeft" id="page0" style="display:block">
+    <div class="row justify-content-between">
+        <div class="col-sm-4 p-4">
+            <div class="input-group">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="input1" value="100000" required>
+                  <label for="floatingInputGroup2">Annual Sale ($)</label>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-4 p-4">
+            <div class="input-group">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="input2" value="1000" required>
+                  <label for="floatingInputGroup2">Annual Customers ($)</label>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-4 p-4">
+            <div class="input-group">
+                <div class="form-floating">
+                  <input type="text" class="form-control"  id="input3" value="80" required>
+                  <label for="floatingInputGroup2">Average Ticket Size ($)</label>
+                </div>
+              </div>
+        </div>
+        </div>
+
+</div>
+
+            <div class="b2b-page-section3-text"  id="page1" style="display:none">
+                <div class="row">
+                    <div class="col-sm-3 text-white">
+                        <div class="alert">
+                            <h1>$<span id="input4"></span></h1>
+                            New shoppers aqcuired  
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-white">
+                        <div class="alert">
+                            <h1>$<span id="input5" ></span></h1> 
+                            Increase in sales due to loyalty
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-white">
+                        <div class="alert">
+                            <h1>$<span id="input6" ></span></h1> 
+                            Increase sales due to Pointsgram
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-white">
+                        <div class="alert">
+                             <h1>%<span id="input13" ></span></h1> 
+                             ROI
+                        </div>
+                    </div>
+                  </div>				
+            </div>	
+            <div class="b2b-page-section3-text"  id="page2" style="display:none">
+                <div class="row">
+
+                <div class="col-sm-2 col-6 p-4 text-white">
+                    <strong >$<span id="input7" ></span></strong> Anually</br>
+                    Total Sales Increase
+                </div>
+                <div class="col-sm-2 col-6 p-4 text-white">
+                    <strong >$<span id="input8" ></span></strong> Upfront</br>
+                    Brand Recognition
+                </div>
+                <div class="col-sm-2 col-6 p-4 text-white">
+                    <strong >$<span id="input9" ></span></strong> Anually</br>
+                    Total Value
+                </div>
+                <div class="col-sm-2 col-6 p-4 text-white">
+                    <strong >$<span id="input10" ></span></strong> Anually</br>
+                    Cost of Loyalty
+                </div>
+                <div class="col-sm-2 col-6 p-4 text-white">
+                    <strong >$<span id="input11" >600</span></strong> Anually</br>
+                    Cost of Membership
+                </div>
+                <div class="col-sm-2 col-6 p-4 text-white">
+                    <strong >$<span id="input12" ></span></strong> Anually</br>
+                    Total Cost of Pointsgram
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/cal.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</html>
