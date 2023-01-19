@@ -1,4 +1,4 @@
-const headerPage0= "Sales Toolbox";
+const headerPage0= "Loyalty Calculator";
 const headerPage1= "Annual Projection";
 const headerPage2= "Summary";
 
