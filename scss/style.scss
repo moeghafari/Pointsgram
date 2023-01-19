@@ -1,0 +1,60 @@
+
+
+.results{
+    border: 1px solid #969696;
+    background-color: white;
+    border-radius: 25px;
+}
+
+
+.b2b-page-section3-content {
+    
+    background-image: url(/img/slider-bg.jpg);
+    border-radius: 40px;
+    padding: 5%;
+    color: white;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+::selection {
+    color: #ffffff;
+}
+
+.arrowLeft{
+background-image: url(/img/arrow-left.svg);
+background-size: 3em;
+    background-repeat: no-repeat;
+    color: white;
+    height: 3em;
+    background-position: left;
+}
+.arrowRight{
+    background-image: url(/img/arrow-right.svg);
+    background-size: 3em;
+    background-repeat: no-repeat;
+    color: white;
+    height: 3em;
+    float: left;
+    background-position: right;
+}
+
+.form-control {
+    display: block !important;
+    color: #ffffff !important;
+    background-color: #fff0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid #ced4da !important;
+    border-radius: 0 !important;
+    font-size: 1.6rem  !important;
+}
+
+.form-control::selection {
+    background: #a2b158;
+  }
+
+.floatingInputGroup2{
+    font-size: 2rem  !important;  
+}
