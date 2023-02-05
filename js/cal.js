@@ -12,7 +12,7 @@ for (let input of document.querySelectorAll("input")) {
 
 function calculate() {
     // Retrieve input values
-    var customerBase = 1063;
+    var customerBase = 1122;
     var anualSales = document.getElementById("input1").value;
     var anualCustomers = document.getElementById("input2").value;
     var avgTicketSize = document.getElementById("input3").value;
@@ -21,9 +21,9 @@ function calculate() {
     var spendingIncrease = 27 / 100;
     var loyalCustConversion = 20 / 100;
     var loyaltyCost = 1 / 100;
-    var membership = 50;
+    var membership = 20;
     var viewValue = 1.5;
-    var membershipYearly = 600; //yearly amount input 11
+    var membershipYearly = 240; //yearly amount input 11
 
     let input4 = anualCustomers * baseConverts * 12;
     document.getElementById("input4").innerHTML = Math.trunc(input4);
