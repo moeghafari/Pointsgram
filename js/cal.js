@@ -21,7 +21,7 @@ function calculate() {
     var spendingIncrease = 27 / 100;
     var loyalCustConversion = 20 / 100;
     var loyaltyCost = 1 / 100;
-    var membership = 20;
+    var membership = 50;
     var viewValue = 1.5;
     var membershipYearly = 240; //yearly amount input 11
 
