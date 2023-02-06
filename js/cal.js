@@ -49,7 +49,7 @@ function calculate() {
     let input12 = input10 + membershipYearly;
     document.getElementById("input12").innerHTML = Math.trunc(input12);
 
-    document.getElementById("input13").innerHTML = Math.trunc(((parseInt(input9) - parseInt(input12)) / parseInt(input12)) * 100);
+    document.getElementById("input13").innerHTML = Math.trunc((((parseInt(input9) - parseInt(input12)) / parseInt(input12)) * 100)/100);
 }
 
 var pagePosition = 0
