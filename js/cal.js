@@ -23,7 +23,7 @@ function calculate() {
     var loyaltyCost = 1 / 100;
     var membership = 50;
     var viewValue = 1.5;
-    var membershipYearly = 240; //yearly amount input 11
+    var membershipYearly = 600; //yearly amount input 11
 
     let input4 = anualCustomers * baseConverts * 12;
     document.getElementById("input4").innerHTML = Math.trunc(input4);
